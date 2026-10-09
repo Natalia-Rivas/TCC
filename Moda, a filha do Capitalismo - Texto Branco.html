@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moda, a filha do Capitalismo</title>
+<meta name="description" content="Trabalho de Conclusão de Curso sobre o sistema de conformidade social na moda atrelado ao capitalismo, por Natália Rivas Marchi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay-600:#845747;
+    --wine-950:#3a1420;
+    --wine-900:#4f1c2d;
+    --wine-800:#63233b;
+    --wine-700:#7d2c46;
+    --wine-600:#B83556;
+    --wine-500:#B83556;
+    --rose-200:#fff6f8;
+    --rose-100:#DC97A5;
+    --cream-100:#FADED2;
+    --cream-050:#FADED2;
+    --clay-600:#845747;
+    --clay-700:#8c5749;
+    --ink-900:#2c1a20;
+    --ink-700:#5b414a;
+    --gold-400:#c3a067;
+    --line-soft:rgba(44,26,32,.1);
+    --line-on-dark:rgba(231,212,217,.28);
+    --header-h:64px;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:calc(var(--header-h) + 18px);
+  }
+  body{
+    margin:0;
+    background:#EFE7DC;
+    color:var(--ink-900);
+    font-family:'Work Sans',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3,h4,h5{font-family:'Fraunces',serif;font-optical-sizing:auto;margin:0;color:inherit;}
+  p{margin:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:24px;}
+  :focus-visible{outline:2px solid var(--gold-400);outline-offset:3px;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:#B83556;
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line-soft);
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  .nav-wrap{
+    max-width:1180px;margin:0 auto;padding-inline:24px;
+    height:var(--header-h);
+    display:flex;align-items:center;justify-content:space-between;gap:28px;
+  }
+  .brand{display:flex;align-items:center;gap:9px;white-space:nowrap;color:#FFFFFF;text-decoration:none;}
+  .brand span{font-family:'Fraunces',serif;font-weight:600;font-size:.98rem;letter-spacing:-.01em;}
+  nav{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+  nav::-webkit-scrollbar{display:none;}
+  nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;white-space:nowrap;}
+  nav a{
+    font-size:.8rem;font-weight:500;letter-spacing:.02em;text-decoration:none;
+    color:#FFFFFF;padding:6px 1px;position:relative;
+  }
+  nav a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;
+    background:#FFFFFF;transform:scaleX(0);transform-origin:right;
+    transition:transform .25s ease;
+  }
+  nav a:hover{color:#FADED2;}
+  nav a:hover::after{transform:scaleX(1);transform-origin:left;}
+
+  /* ---------- shared section chrome ---------- */
+  section{padding:clamp(56px,8vw,104px) 24px;background:#EFE7DC;}
+  .section-head{max-width:1180px;margin:0 auto;display:flex;align-items:baseline;gap:16px;margin-bottom:44px;}
+  .section-num{
+    font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold-400);
+    letter-spacing:.05em;
+  }
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.15rem);font-weight:600;letter-spacing:-.01em;color:var(--wine-700);}
+  #pensadores .section-head h2,#status .section-head h2{color:var(--cream-100);}
+  #pensadores .section-num{color:var(--rose-200);}
+  #status .section-num{color:var(--rose-200);}
+  .rule{flex:1;height:1px;background:var(--line-soft);align-self:center;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:56px 24px 84px;
+    background:
+      linear-gradient(152deg, rgba(156,51,85,.86) 0%, rgba(58,20,32,.92) 82%),
+      url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1800&q=85") center center / cover no-repeat;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+  }
+  h1{
+    font-weight:600;font-size:clamp(2.15rem,4.4vw,3.4rem);line-height:1.1;
+    color:#FFFFFF;letter-spacing:-.01em;
+  }
+  h1 em{font-style:italic;font-weight:500;color:var(--rose-200);}
+  .lede{
+    margin-top:22px;font-size:1.05rem;line-height:1.65;color:var(--rose-100);
+    max-width:48ch;font-weight:300;
+  }
+  .hero-art{display:flex;align-items:center;justify-content:center;}
+
+  /* ---------- impactos ---------- */
+  .intro-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.2fr .9fr;gap:56px;align-items:start;}
+  .intro-grid p{margin-bottom:18px;font-size:1rem;line-height:1.7;color:var(--ink-900);max-width:62ch;}
+  .intro-grid p:last-child{margin-bottom:0;}
+  .intro-grid strong{color:var(--wine-700);}
+  .impact-visual{
+    margin-bottom:18px;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--line-soft);
+    background:var(--cream-050);
+    box-shadow:0 4px 14px rgba(44,26,32,.10);
+  }
+  .impact-visual img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    object-position:center;
+  }
+  .impact-visual figcaption{
+    padding:10px 14px 12px;
+    font-size:.72rem;
+    line-height:1.45;
+    color:var(--ink-700);
+    background:var(--cream-050);
+  }
+  .callout{
+    background:var(--cream-050);border-left:4px solid var(--wine-600);border-radius:2px;
+    padding:22px 26px;font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    color:var(--wine-700);font-size:1.05rem;line-height:1.55;
+    box-shadow:0 1px 3px rgba(44,26,32,.07);
+  }
+  .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+  .stat-box{background:var(--clay-600);border-radius:8px;padding:20px 12px;text-align:center;}
+  .stat-box .num{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:1.85rem;color:var(--cream-100);letter-spacing:-.01em;}
+  .stat-box .lbl{display:block;margin-top:6px;font-size:.66rem;letter-spacing:.03em;text-transform:uppercase;color:var(--rose-100);line-height:1.4;}
+
+  /* ---------- capitalismo cards ---------- */
+  .card-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:#FADED2;border:1px solid var(--line-soft);border-radius:10px;
+    padding:26px 24px 24px;position:relative;
+  }
+  .card .tag{
+    position:absolute;top:22px;right:22px;font-family:'JetBrains Mono',monospace;
+    font-size:.7rem;color:rgba(44,26,32,.32);
+  }
+  .card h3{font-size:1.08rem;font-weight:600;color:var(--ink-900);margin-bottom:9px;line-height:1.3;}
+  .card p{font-size:.91rem;line-height:1.6;color:var(--ink-700);}
+
+  /* ---------- pensadores ---------- */
+  #pensadores{background:#55768C;}
+  .thinker-row{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;}
+  .thinker h4{font-size:1.05rem;font-weight:600;color:var(--cream-100);margin-bottom:8px;}
+  .thinker p{font-size:.9rem;line-height:1.62;color:var(--cream-100);}
+  .thinker em{color:var(--rose-200);}
+
+  /* ---------- fast fashion ---------- */
+  .ff-layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:start;}
+  .ff-text p{font-size:1rem;line-height:1.72;color:var(--ink-900);margin-bottom:18px;max-width:60ch;}
+  .ff-text strong{color:var(--wine-700);}
+  .timeline-compare{margin:26px 0 30px;display:flex;flex-direction:column;gap:16px;}
+  .tl-row{display:grid;grid-template-columns:112px 1fr auto;align-items:center;gap:12px;}
+  .tl-label{font-size:.78rem;color:var(--ink-700);font-weight:500;}
+  .tl-track{background:var(--line-soft);border-radius:20px;height:9px;overflow:hidden;}
+  .tl-fill{height:100%;border-radius:20px;}
+  .tl-fill.slow{width:100%;background:var(--wine-600);}
+  .tl-fill.fast{width:9%;background:var(--clay-600);}
+  .tl-time{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-900);white-space:nowrap;}
+  .quote-block{
+    position:relative;background:#FADED2;border-radius:10px;padding:26px 28px 24px 52px;
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;color:var(--ink-900);
+    font-size:1.02rem;line-height:1.6;border:1px solid var(--line-soft);
+  }
+  .quote-block::before{
+    content:"\201C";position:absolute;left:16px;top:6px;font-size:2.6rem;color:var(--wine-500);
+    font-family:'Fraunces',serif;font-style:normal;line-height:1;
+  }
+  .quote-block cite{display:block;margin-top:12px;font-family:'Work Sans',sans-serif;font-style:normal;
+    font-size:.78rem;letter-spacing:.02em;color:var(--wine-700);}
+  .impact-list{display:flex;flex-direction:column;gap:0;}
+  .impact-item{
+    display:flex;align-items:center;gap:16px;padding:16px 4px;border-bottom:1px solid var(--line-soft);
+  }
+  .impact-item:first-child{padding-top:0;}
+  .impact-item .figure{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;color:var(--wine-700);white-space:nowrap;}
+  .impact-item .desc{font-size:.88rem;line-height:1.4;color:var(--ink-700);}
+
+  /* ---------- conformidade ---------- */
+  .conf-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .conf-card{background:#FADED2;border:1px solid var(--line-soft);border-radius:10px;padding:28px 24px;}
+  .conf-card h4{font-size:1.02rem;font-weight:600;color:var(--ink-900);margin-bottom:9px;}
+  .conf-card p{font-size:.9rem;line-height:1.6;color:var(--ink-700);}
+
+  /* ---------- status ---------- */
+  #status{background:linear-gradient(170deg,var(--wine-700) 0%,var(--wine-950) 100%);}
+  #status .kicker-text{max-width:720px;color:var(--rose-200);margin-bottom:34px;font-size:1rem;line-height:1.7;}
+  #status .kicker-text em{color:var(--cream-100);font-style:italic;}
+  .status-flow-wrap{max-width:1180px;margin:0 auto;position:relative;}
+  .status-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+  .status-step{
+    flex:1 1 200px;background:rgba(250,243,234,.06);border:1px solid var(--line-on-dark);
+    border-radius:10px;padding:22px 20px;
+  }
+  .status-step h5{font-size:.98rem;font-weight:600;color:var(--cream-100);margin-bottom:7px;}
+  .status-step p{font-size:.85rem;line-height:1.5;color:var(--rose-100);}
+  .arrow{display:flex;align-items:center;justify-content:center;padding:0 10px;color:var(--gold-400);font-size:1.2rem;line-height:1;flex:0 0 auto;}
+  .loop-note{
+    display:none;text-align:center;margin-top:18px;font-size:.78rem;color:var(--rose-200);
+    letter-spacing:.02em;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--wine-950);color:var(--rose-100);text-align:center;
+    padding:52px 24px 60px;
+  }
+  footer .fkicker{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--rose-200);opacity:.8;}
+  footer strong{display:block;margin-top:8px;font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(#FFFFFF);}
+  footer .totop{
+    display:inline-block;margin-top:26px;font-size:.78rem;color:var(--rose-200);text-decoration:none;
+    border-bottom:1px solid var(--line-on-dark);padding-bottom:2px;
+  }
+  footer .totop:hover{color:var(--cream-100);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:8px;}
+    .hero-art{order:-1;max-width:220px;margin:0 auto 8px;}
+    .intro-grid,.ff-layout{grid-template-columns:1fr;gap:34px;}
+    .card-grid,.thinker-row,.conf-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:640px){
+    .impact-visual img{height:210px;}
+    .card-grid,.thinker-row,.conf-grid,.stat-strip{grid-template-columns:1fr;}
+    .status-flow{flex-direction:column;align-items:stretch;}
+    .status-step{flex:0 1 auto;}
+    .arrow{transform:rotate(90deg);padding:6px 0;}
+    .loop-note{display:block;}
+    nav ul{gap:22px;}
+    .tl-row{grid-template-columns:92px 1fr auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a class="brand" href="#topo" aria-label="Voltar ao topo">
+      <span>moda &amp; capital</span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#impactos">Impactos</a></li>
+        <li><a href="#capitalismo">Capitalismo</a></li>
+        <li><a href="#pensadores">Moda e Sociedade</a></li>
+        <li><a href="#fastfashion">Fast Fashion</a></li>
+        <li><a href="#conformidade">Conformidade</a></li>
+        <li><a href="#status">Status</a></li>
+     </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="topo">
+  <div class="hero-inner">
+    <div>
+      <h1>O sistema de conformidade social na moda atrelado ao capitalismo</h1>
+      <p class="lede">Como a indústria da moda transforma a necessidade básica de vestir-se em engrenagem de consumo, status e descarte — e por que a grande massa permanece alienada nesse ciclo.</p>
+    </div>
+  </div>
+</section>
+
+<section id="impactos">
+  <div class="section-head">
+    <h2>Impactos</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="intro-grid">
+    <div>
+      <p>Vivemos em uma cultura de consumo e ostentação em que a indústria lança tendências continuamente: quando uma peça se populariza e chega às classes mais baixas — geralmente com menor qualidade — o mercado já lança a próxima novidade, mantendo vivo o incentivo ao consumo.</p>
+      <p>Nesse cenário se insere o <strong>fast fashion</strong>, modelo de negócio que aposta em velocidade e baixo custo de produção para atender desejos momentâneos, gerando consumo excessivo de peças de baixa durabilidade e fortes impactos ambientais.</p>
+      <p>Entender como a indústria da moda foi moldada para alimentar o capitalismo — e como isso depende da alienação da massa — é essencial para reduzir os impactos sociais e ambientais de um dos setores mais poluentes do planeta, e caminhar rumo à popularização da moda sustentável.</p>
+    </div>
+    <div>
+      <figure class="impact-visual">
+        <img src="https://s.w-x.co/de-Altkleider2-dpa.jpg" alt="Grande acúmulo de roupas descartadas no deserto do Atacama, no Chile, associado ao descarte acelerado de roupas da indústria da moda">
+        <figcaption>Descarte de roupas no deserto do Atacama, no Chile, evidenciando os impactos do consumo e do descarte acelerados na indústria da moda.</figcaption>
+      </figure>
+      <div class="callout">O capitalismo vende a ideia de que consumir vai mostrar quem você é — ideias hoje profundamente amplificadas pelas redes sociais.</div>
+      <div class="stat-strip">
+        <div class="stat-box"><span class="num">92M</span><span class="lbl">ton. de resíduos têxteis/ano</span></div>
+        <div class="stat-box"><span class="num">8%</span><span class="lbl">das emissões globais de carbono</span></div>
+        <div class="stat-box"><span class="num">80%</span><span class="lbl">dos resíduos vão para aterros</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="capitalismo">
+  <div class="section-head">
+    <h2>Capitalismo</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="card-grid">
+    <div class="card">
+      <span class="tag"></span>
+      <h3>Conceito de capitalismo</h3>
+      <p>Sistema baseado na propriedade privada dos meios de produção, na busca pelo lucro e na livre concorrência. Nasce da Revolução Industrial, quando o trabalhador perde a posse de seus meios de produção e se torna mão de obra assalariada.</p>
+    </div>
+    <div class="card">
+      <h3>Moda como fenômeno social</h3>
+      <p>Para Simmel, a moda é distinção social; para Bourdieu, capital simbólico. Mais que vestuário, ela expressa identidade, diferenciação e ciclos de tendência.</p>
+    </div>
+    <div class="card">
+      <span class="tag"></span>
+      <h3>Produção em massa</h3>
+      <p>A industrialização têxtil globalizou as cadeias produtivas, deslocando fábricas para países com mão de obra barata — a base estrutural do fast fashion.</p>
+    </div>
+    <div class="card">
+      <h3>Fast fashion e consumo</h3>
+      <p>Alta rotatividade de coleções e obsolescência simbólica estimulam o consumo impulsivo e a cultura do descarte, reforçadas pela pressão social das redes.</p>
+    </div>
+    <div class="card">
+      <h3>Impactos sociais e ambientais</h3>
+      <p>Alto consumo de água, poluição têxtil e uso de químicos de um lado; exploração de mão de obra e trabalho precarizado do outro.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pensadores">
+  <div class="section-head">
+   
+    <h2>O que dizem os pensadores</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="thinker-row">
+    <div class="thinker">
+      <h4>Karl Marx</h4>
+      <p>Descreve o capitalismo como um sistema de classes fundado na exploração da mão de obra; a burguesia reduz todas as relações humanas ao "frio interesse" e ao "pagamento em dinheiro".</p>
+    </div>
+    <div class="thinker">
+      <h4>Jacques Lacan</h4>
+      <p>O discurso capitalista rompe laços sociais: o objeto de consumo ("latusa") é criado para despertar desejo e mascarar uma carência generalizada.</p>
+    </div>
+    <div class="thinker">
+      <h4>Zygmunt Bauman</h4>
+      <p>Na "sociedade líquida", consumir é sinônimo de descartar — produtos com durabilidade programada mantêm a engrenagem sempre girando.</p>
+    </div>
+    <div class="thinker">
+      <h4>Pierre Bourdieu</h4>
+      <p>A vestimenta é símbolo regulado por códigos de grupos elitizados, que excluem a massa até que novas tendências preencham o vazio criado.</p>
+    </div>
+    <div class="thinker">
+      <h4>Gilles Lipovetsky</h4>
+      <p>Com a democratização das casas de costura, vestir-se deixou de ser algo qualquer — tornou-se declaração social acessível, porém hierarquizada.</p>
+    </div>
+    <div class="thinker">
+      <h4>Barbara Kruger</h4>
+      <p>Em 1987, a obra <em>"I shop therefore I am"</em> questiona o consumo em massa e a ausência de pensamento crítico diante das vitrines.</p>
+    </div>
+  </div>
+</section>
+
+<section id="fastfashion">
+  <div class="section-head">
+    <h2>Fast fashion: a engrenagem acelerada</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="ff-layout">
+    <div class="ff-text">
+      <p>O fast fashion se caracteriza pela rapidez, novidade e preço baixo: enquanto uma grande marca tradicional pode levar até <strong>24 meses</strong> para lançar uma coleção, o modelo fast fashion lança novas peças em poucas <strong>semanas</strong>.</p>
+
+      <div class="timeline-compare" role="img" aria-label="Comparação de tempo de lançamento: marca tradicional 24 meses, fast fashion de 2 a 4 semanas">
+        <div class="tl-row">
+          <span class="tl-label">Marca tradicional</span>
+          <div class="tl-track"><div class="tl-fill slow"></div></div>
+          <span class="tl-time">24 meses</span>
+        </div>
+        <div class="tl-row">
+          <span class="tl-label">Fast fashion</span>
+          <div class="tl-track"><div class="tl-fill fast"></div></div>
+          <span class="tl-time">2–4 semanas</span>
+        </div>
+      </div>
+
+      <p>Essa velocidade só é possível através da terceirização da produção em países com mão de obra barata — muitas vezes em condições análogas à escravidão — sacrificando qualidade e direitos trabalhistas em nome da competitividade de preço.</p>
+      <div class="quote-block">
+        Já está mais do que na hora de começarmos a desacelerar o consumo de moda sem durabilidade — o fast fashion ajudou a empregar países pobres, mas precisa migrar para produtos de mais qualidade a preços razoáveis.
+        <cite>— Bonorino, 2012</cite>
+      </div>
+    </div>
+    <div class="impact-list">
+      <div class="impact-item"><span class="figure">2.700L</span><span class="desc">de água para produzir uma única camiseta</span></div>
+      <div class="impact-item"><span class="figure">79 bi m³</span><span class="desc">de água consumidos pela indústria da moda por ano</span></div>
+      <div class="impact-item"><span class="figure">20%</span><span class="desc">da poluição global da água vem da indústria têxtil</span></div>
+      <div class="impact-item"><span class="figure">0,5M ton.</span><span class="desc">de microplásticos despejados nos oceanos ao ano</span></div>
+      <div class="impact-item"><span class="figure">10%</span><span class="desc">da liberação global de gases de efeito estufa</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="conformidade">
+  <div class="section-head">
+    <h2>Conformidade social e alienação</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="conf-grid">
+    <div class="conf-card">
+      <h4>Influência</h4>
+      <p>Um grupo pode alterar a decisão individual: mesmo opiniões contrárias tendem a se curvar à posição da maioria.</p>
+    </div>
+    <div class="conf-card">
+      <h4>Falta de pensamento crítico</h4>
+      <p>Parte da sociedade tende à obediência e à conformidade diante de figuras de autoridade e influência.</p>
+    </div>
+    <div class="conf-card">
+      <h4>Redes sociais</h4>
+      <p>Empresas usam as redes como "amarrações" onde cada usuário é um nó que busca pertencer, criando falsos desejos de necessidade.</p>
+    </div>
+  </div>
+</section>
+
+<section id="status">
+  <div class="section-head">
+    <h2>Moda como linguagem de status</h2>
+    <div class="rule"></div>
+  </div>
+  <p class="kicker-text">Para Veblen, a sociedade se organiza por hábitos de comparação e imitação — o consumo vira o meio mais direto de reconhecimento. Baudrillard chama isso de <em>commodity sign</em>: valorizamos a imagem do objeto mais do que sua utilidade real.</p>
+  <div class="status-flow-wrap">
+    <div class="status-flow">
+      <div class="status-step"><h5>Elite lança</h5><p>uma nova tendência como marca de distinção</p></div>
+      <span class="arrow"></span>
+      <div class="status-step"><h5>Massa deseja</h5><p>reproduzir o símbolo de status enxergado</p></div>
+      <span class="arrow"></span>
+      <div class="status-step"><h5>Mercado populariza</h5><p>versões mais baratas e de menor qualidade</p></div>
+      <span class="arrow"></span>
+      <div class="status-step"><h5>Elite descarta</h5><p>e lança a próxima tendência — o ciclo recomeça</p></div>
+    </div>
+    <p class="loop-note">→ o ciclo recomeça</p>
+  </div>
+</section>
+
+<footer>
+  <span class="fkicker">Trabalho de Conclusão de Curso</span>
+  <strong>Natália Rivas Marchi</strong>
+  <a class="totop" href="#topo">Voltar ao topo</a>
+</footer>
+
+</body>
+</html>
